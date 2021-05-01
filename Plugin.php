@@ -5,7 +5,7 @@
  * 
  * @package RnRWebLive2D
  * @author Rainiar
- * @version 1.2.0
+ * @version 1.3.0
  * @link https://rainiar.top
  */
 class RnRWebLive2D_Plugin implements Typecho_Plugin_Interface {
@@ -27,7 +27,7 @@ class RnRWebLive2D_Plugin implements Typecho_Plugin_Interface {
 
     public static function footer() {
         $settings = Helper::options()->plugin('RnRWebLive2D');
-        echo '<div class="waifu"><div class="waifu-tips"></div><canvas id="live2d" class="live2d"></canvas><div class="waifu-tool"><span class="fui-home"></span><span class="fui-chat"></span><span class="fui-eye"></span><span class="fui-user"></span><span class="fui-photo"></span><span class="fui-info-circle"></span><span class="fui-cross"></span></div></div><script defer>live2d_settings["modelAPI"]="' . $settings->apiURL . '";live2d_settings["hitokotoAPI"]="' . $settings->htktAPI . '";live2d_settings["modelId"]=' . $settings->mdID . ';live2d_settings["modelTexturesId"]=' . $settings->txID . ';live2d_settings["modelStorage"]=' . ($settings->mdSt == 1 ? 'true' : 'false') . ';live2d_settings["modelRandMode"]="' . ($settings->mdSw == 1 ? 'rand' : 'switch') . '";live2d_settings["modelTexturesRandMode"]="' . ($settings->txSw == 1 ? 'rand' : 'switch') . '";live2d_settings["homePageUrl"]="' . Helper::options()->rootUrl . '";initModel("' . Helper::options()->pluginUrl . '/RnRWebLive2D/waifu-tips.json");</script>';
+        echo '<div class="waifu"><div class="waifu-tips"></div><canvas id="live2d" class="live2d"></canvas><div class="waifu-tool"><span class="fui-home"></span><span class="fui-chat"></span><span class="fui-eye"></span><span class="fui-user"></span><span class="fui-photo"></span><span class="fui-info-circle"></span><span class="fui-cross"></span></div></div><script defer>live2d_settings["modelAPI"]="' . $settings->apiURL . '";live2d_settings["hitokotoAPI"]="' . $settings->htktAPI . '";live2d_settings["modelId"]=' . $settings->mdID . ';live2d_settings["modelTexturesId"]=' . $settings->txID . ';live2d_settings["modelStorage"]=' . ($settings->mdSt == 1 ? 'true' : 'false') . ';live2d_settings["modelRandMode"]="' . ($settings->mdSw == 1 ? 'rand' : 'switch') . '";live2d_settings["modelTexturesRandMode"]="' . ($settings->txSw == 1 ? 'rand' : 'switch') . '";live2d_settings["homePageUrl"]="' . Helper::options()->rootUrl . '";if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){console.log("[RnRWebLive2D] Disable on mobile devices.");$(".waifu").hide();}else initModel("' . Helper::options()->pluginUrl . '/RnRWebLive2D/waifu-tips.json");</script>';
     }
     
     /**
